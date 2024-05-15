@@ -1,10 +1,10 @@
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import type { NextAuthOptions } from 'next-auth';
-import GitHubProvider from 'next-auth/providers/github';
+import {PrismaAdapter} from '@next-auth/prisma-adapter'
+import type {NextAuthOptions} from 'next-auth'
+import GitHubProvider from 'next-auth/providers/github'
 
-import { env } from '@/env.mjs';
-import prisma from '@/lib/prisma';
-import { stripeServer } from '@/lib/stripe';
+import {env} from '@/env.mjs'
+import prisma from '@/lib/prisma'
+import {stripeServer} from '@/lib/stripe'
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -15,19 +15,19 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async session({ session, user }) {
-      if (!session.user) return session;
+    async session({session, user}) {
+      if (!session.user) return session
 
-      session.user.id = user.id;
-      session.user.stripeCustomerId = user.stripeCustomerId;
-      session.user.isActive = user.isActive;
+      session.user.id = user.id
+      session.user.stripeCustomerId = user.stripeCustomerId
+      session.user.isActive = user.isActive
 
-      return session;
+      return session
     },
   },
   events: {
-    createUser: async ({ user }) => {
-      if (!user.email || !user.name) return;
+    createUser: async ({user}) => {
+      if (!user.email || !user.name) return
 
       await stripeServer.customers
         .create({
@@ -36,12 +36,12 @@ export const authOptions: NextAuthOptions = {
         })
         .then(async (customer) => {
           return prisma.user.update({
-            where: { id: user.id },
+            where: {id: user.id},
             data: {
               stripeCustomerId: customer.id,
             },
-          });
-        });
+          })
+        })
     },
   },
-};
+}

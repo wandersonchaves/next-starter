@@ -1,4 +1,4 @@
-import { env } from '@/env.mjs';
+import {env} from '@/env.mjs'
 
 export const siteConfig = {
   title: 'Next.js Starter',
@@ -18,4 +18,4 @@ export const siteConfig = {
   ],
   url: env.APP_URL,
   googleSiteVerificationId: env.GOOGLE_SITE_VERIFICATION_ID || '',
-};
+}

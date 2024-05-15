@@ -1,12 +1,12 @@
-'use client';
+'use client'
 
-import { useTheme } from 'next-themes';
+import {useTheme} from 'next-themes'
 
-import { Icons } from '@/components/icons';
-import { Button } from '@/components/ui/button';
+import {Icons} from '@/components/icons'
+import {Button} from '@/components/ui/button'
 
 export const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const {theme, setTheme} = useTheme()
 
   return (
     <Button
@@ -18,5 +18,5 @@ export const ThemeToggle = () => {
       <Icons.sun className="dark:hidden" />
       <Icons.moon className="hidden dark:block" />
     </Button>
-  );
-};
+  )
+}
