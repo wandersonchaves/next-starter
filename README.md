@@ -144,4 +144,4 @@ To contribute, please follow these steps:
 
 If you liked the project, I will appreciate if you leave a star. 🌟😊
 
-Made by <a href="https://wandersonchaves.netlify.app/">Michał Skolak</a>
+Made by <a href="https://wandersonchaves.netlify.app/">Wanderson Chaves</a>
