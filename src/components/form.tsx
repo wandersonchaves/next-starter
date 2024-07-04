@@ -34,7 +34,10 @@ export const HeroForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-3">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex gap-3"
+      >
         <FormField
           control={form.control}
           name="name"
@@ -53,7 +56,10 @@ export const HeroForm = () => {
             </FormItem>
           )}
         />
-        <Button variant="secondary" type="submit">
+        <Button
+          variant="secondary"
+          type="submit"
+        >
           Submit
         </Button>
       </form>

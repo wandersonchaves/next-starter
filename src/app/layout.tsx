@@ -47,7 +47,10 @@ export const metadata: Metadata = {
 
 const RootLayout = ({children}: PropsWithChildren) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
       <body className={cn('min-h-screen font-sans', fonts)}>
         <ThemeProvider attribute="class">
           <Navbar />

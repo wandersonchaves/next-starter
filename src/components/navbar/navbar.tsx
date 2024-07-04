@@ -12,7 +12,10 @@ export const Navbar = async () => {
   return (
     <header className="w-full border-b">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="font-mono text-lg font-bold">
+        <Link
+          href="/"
+          className="font-mono text-lg font-bold"
+        >
           next-starter
         </Link>
         <div className="flex items-center gap-2">

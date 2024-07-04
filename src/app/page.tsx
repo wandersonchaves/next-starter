@@ -25,7 +25,10 @@ const Home = () => {
             Get Started
           </a>
         </Button>
-        <Button variant="outline" asChild>
+        <Button
+          variant="outline"
+          asChild
+        >
           <a
             href="https://github.com/wandersonchaves/next-starter"
             target="_blank"
