@@ -1,5 +1,5 @@
-<a href="https://next-starter-wandersonchaves.vercel.app/">
-<img src="https://github.com/wandersonchaves/next-starter/assets/76774237/44b552ff-43aa-441f-b1d0-de9bdfc2a73f" alt="thubnail">
+<a href="https://next-starter-skolaczk.vercel.app/">
+<img src="https://github.com/Skolaczk/next-starter/assets/76774237/44b552ff-43aa-441f-b1d0-de9bdfc2a73f" alt="thubnail">
 </a>
 <p align="center">
   <a href="#-features"><strong>Features</strong></a> ·
@@ -35,12 +35,13 @@
 - 🤖 Github actions - Lint your code on PR
 - ⚙️ T3-env - Manage your environment variables
 - 💯 Perfect Lighthouse score
+- 🌐 I18n with Paraglide
 
 ## 🚀 Deployment
 
 Easily deploy your Next.js app with <a href="https://vercel.com/">Vercel</a> by clicking the button below:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wandersonchaves/next-starter)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Skolaczk/next-starter)
 
 ## 🎯 Getting started
 
@@ -48,18 +49,18 @@ Easily deploy your Next.js app with <a href="https://vercel.com/">Vercel</a> by 
 
 1. Using this repository as template
 
-   ![use-this-template-button](https://github.com/wandersonchaves/next-starter/assets/76774237/f25c9a29-41de-4865-aa38-c032b9346169)
+   ![use-this-template-button](https://github.com/Skolaczk/next-starter/assets/76774237/f25c9a29-41de-4865-aa38-c032b9346169)
 
 2. Using `create-next-app`
 
    ```bash
-   npx create-next-app -e https://github.com/wandersonchaves/next-starter my-project-name
+   npx create-next-app -e https://github.com/Skolaczk/next-starter my-project-name
    ```
 
 3. Using `git clone`
 
    ```bash
-   git clone https://github.com/wandersonchaves/next-starter my-project-name
+   git clone https://github.com/Skolaczk/next-starter my-project-name
    ```
 
 ### 2. Install dependencies
@@ -107,6 +108,8 @@ and open http://localhost:3000/ to see this app.
     ├── lib                         # Functions and utilities
     ├── styles                      # Styles folder
     ├── types                       # Type definitions
+    ├── messages                    # Messages for i18n
+    ├── paraglide                   # (generated) compiled i18n messages
     └── env.mjs                     # Env variables config file
 ```
 
@@ -144,4 +147,4 @@ To contribute, please follow these steps:
 
 If you liked the project, I will appreciate if you leave a star. 🌟😊
 
-Made by <a href="https://wandersonchaves.netlify.app/">Wanderson Chaves</a>
+Made by <a href="https://michalskolak.netlify.app/">Michał Skolak</a>

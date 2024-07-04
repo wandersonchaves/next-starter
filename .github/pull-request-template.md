@@ -1,6 +1,6 @@
 ### Issue 😱:
 
-Closes https://github.com/wandersonchaves/next-starter/issues
+Closes https://github.com/Skolaczk/next-starter/issues
 
 ### What has been done ✅:
 
