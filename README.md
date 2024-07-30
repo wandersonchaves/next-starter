@@ -30,10 +30,10 @@
 - 🐶 Husky & Lint Staged - Run scripts on your staged files before they are committed
 - 🔹 Icons - From Lucide
 - 🌑 Dark mode - With next-themes
-- 🗺️ Sitemap & robots.txt - With next-sitemap
 - 📝 Commitlint - Lint your git commits
 - 🤖 Github actions - Lint your code on PR
 - ⚙️ T3-env - Manage your environment variables
+- 🗺️ Sitemap & robots.txt
 - 💯 Perfect Lighthouse score
 - 🌐 I18n with Paraglide
 
@@ -89,7 +89,7 @@ You can start the server using this command:
 npm run dev
 ```
 
-and open http://localhost:3000/ to see this app.
+and open <http://localhost:3000/> to see this app.
 
 ## 📁 Project structure
 
@@ -147,4 +147,4 @@ To contribute, please follow these steps:
 
 If you liked the project, I will appreciate if you leave a star. 🌟😊
 
-Made by <a href="https://michalskolak.netlify.app/">Michał Skolak</a>
+Made by <a href="https://wandersonchaves.netlify.app/">Wanderson Chaves</a>
