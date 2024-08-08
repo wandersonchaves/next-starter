@@ -1,6 +1,7 @@
 <a href="https://next-starter-skolaczk.vercel.app/">
-<img src="https://github.com/Skolaczk/next-starter/assets/76774237/44b552ff-43aa-441f-b1d0-de9bdfc2a73f" alt="thubnail">
+  <img src="https://github.com/Skolaczk/next-starter/assets/76774237/44b552ff-43aa-441f-b1d0-de9bdfc2a73f" alt="thumbnail" />
 </a>
+
 <p align="center">
   <a href="#-features"><strong>Features</strong></a> ·
   <a href="#-deployment"><strong>Deployment</strong></a> ·
@@ -147,4 +148,4 @@ To contribute, please follow these steps:
 
 If you liked the project, I will appreciate if you leave a star. 🌟😊
 
-Made by <a href="https://wandersonchaves.netlify.app/">Wanderson Chaves</a>
+Made by <a href="https://wandersonchaves.vercel.app/">Wanderson Chaves</a>
