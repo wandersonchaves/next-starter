@@ -1,5 +1,5 @@
-import { env } from '@/env.mjs';
-import * as m from '@/paraglide/messages';
+import {env} from '@/env.mjs'
+import * as m from '@/paraglide/messages'
 
 export const siteConfig = {
   title: m.meta_title,
@@ -18,4 +18,4 @@ export const siteConfig = {
   ],
   url: () => env.APP_URL,
   googleSiteVerificationId: () => env.GOOGLE_SITE_VERIFICATION_ID || '',
-};
+}

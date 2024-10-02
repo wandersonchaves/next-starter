@@ -1,7 +1,7 @@
-import { HeroForm } from '@/components/form';
-import { Icons } from '@/components/icons';
-import { Button } from '@/components/ui/button';
-import * as m from '@/paraglide/messages';
+import {HeroForm} from '@/components/form'
+import {Icons} from '@/components/icons'
+import {Button} from '@/components/ui/button'
+import * as m from '@/paraglide/messages'
 
 const Home = () => {
   return (
@@ -18,20 +18,26 @@ const Home = () => {
       <div className="mt-2 flex gap-4">
         <Button asChild>
           <a
-            href="https://github.com/Skolaczk/next-starter/blob/main/README.md#getting-started"
+            href="https://github.com/wandersonchaves/next-starter/blob/main/README.md#getting-started"
             target="_blank"
           >
             {m.get_started()}
           </a>
         </Button>
-        <Button variant="outline" asChild>
-          <a href="https://github.com/Skolaczk/next-starter" target="_blank">
+        <Button
+          variant="outline"
+          asChild
+        >
+          <a
+            href="https://github.com/wandersonchaves/next-starter"
+            target="_blank"
+          >
             <Icons.github className="mr-2 size-4" /> {m.github()}
           </a>
         </Button>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

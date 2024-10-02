@@ -1,6 +1,6 @@
-import { MetadataRoute } from 'next';
+import {MetadataRoute} from 'next'
 
-import { env } from '@/env.mjs';
+import {env} from '@/env.mjs'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -15,5 +15,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
-  ];
+  ]
 }

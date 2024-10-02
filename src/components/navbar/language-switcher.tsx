@@ -1,32 +1,35 @@
-'use client';
+'use client'
 
-import { Button } from '@/components/ui/button';
+import {Button} from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { usePathname, useRouter } from '@/lib/i18n';
+} from '@/components/ui/dropdown-menu'
+import {usePathname, useRouter} from '@/lib/i18n'
 import {
   AvailableLanguageTag,
   availableLanguageTags,
   languageTag,
-} from '@/paraglide/runtime';
+} from '@/paraglide/runtime'
 
 const LanguageLabel: Record<AvailableLanguageTag, string> = {
   en: 'English',
   pl: 'Polski',
-};
+}
 
 export const LanguageSwitcher = () => {
-  const router = useRouter();
-  const pathname = usePathname();
+  const router = useRouter()
+  const pathname = usePathname()
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="secondary" size="icon">
+        <Button
+          variant="secondary"
+          size="icon"
+        >
           {languageTag().toUpperCase()}
         </Button>
       </DropdownMenuTrigger>
@@ -35,7 +38,7 @@ export const LanguageSwitcher = () => {
           <DropdownMenuItem
             key={locale}
             onClick={() => {
-              router.push(pathname, { locale });
+              router.push(pathname, {locale})
             }}
           >
             {LanguageLabel[locale]}
@@ -43,5 +46,5 @@ export const LanguageSwitcher = () => {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
-};
+  )
+}
