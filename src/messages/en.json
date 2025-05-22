@@ -1,6 +1,6 @@
 {
     "$schema": "https://inlang.com/schema/inlang-message-format",
-    "app_name": "next-starter",
+    "app_name": "NEXT-STARTER",
     "sign_in": "Sign in",
     "theme_toggle_label": "theme toggle",
     "my_account": "My Account",
@@ -22,7 +22,8 @@
     "meta_keyword_next_auth": "Next-auth",
     "meta_keyword_prisma": "Prisma",
     "nextjs_starter_template_headline": "Next.js starter template",
-    "nextjs_starter_template_description": "A Next.js starter template, packed with features like TypeScript, Tailwind CSS, Next-auth, Eslint, Stripe, Paraglide, testing tools and more. Jumpstart your project with efficiency and style.",
+    "nextjs_starter_template_description": "A Next.js starter template, packed with features like TypeScript, Tailwind CSS, Next-auth, Eslint, EFI, Paraglide, testing tools and more. Jumpstart your project with efficiency and style.",
     "get_started": "Get Started",
-    "github": "Github"
+    "github": "Github",
+    "google": "Google"
 }
