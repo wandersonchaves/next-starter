@@ -1,37 +1,60 @@
-// src/middleware.ts
-import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { getToken } from 'next-auth/jwt';
+
+import { env } from './env.mjs';
 
 import { middleware as paraglide } from '@/lib/i18n';
 
 const PUBLIC_ROUTES = ['/', '/login'];
 const LOGIN_ROUTE = '/login';
-const DASHBOARD_ROUTE = '/dashboard'; // Altere para a rota pós-login da sua aplicação
+const DEFAULT_ROUTE_AFTER_LOGIN = '/dashboard';
+const UNAUTHORIZED_ROUTE = '/unauthorized';
 
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+const ROLE_PROTECTED_PATHS: Record<string, ('ADMIN' | 'MANAGER' | 'USER')[]> = {
+  '/admin': ['ADMIN'],
+  '/dashboard': ['ADMIN', 'MANAGER'],
+};
 
-  // Executa o middleware de internacionalização (paraglide)
-  const i18nResponse = paraglide(request);
+export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  // const lang = request.headers.get('x-language-tag');
+
+  if (pathname.startsWith('/api/') || pathname === '/api') {
+    return NextResponse.next();
+  }
+
+  const i18nResponse = await paraglide(request);
   if (i18nResponse.status !== 200) return i18nResponse;
 
-  // Verifica autenticação por cookies (NextAuth.js)
-  const sessionToken =
-    request.cookies.get('__Secure-authjs.session-token')?.value ||
-    request.cookies.get('authjs.session-token')?.value;
+  const token = await getToken({
+    req: request,
+    secret: env.AUTH_SECRET,
+    cookieName: 'next-auth.session-token',
+  });
+  console.log('📦 token do middleware:', token);
 
-  const isPublic = PUBLIC_ROUTES.some(
+  const isPublicRoute = PUBLIC_ROUTES.some(
     (route) => pathname === route || pathname.startsWith(`${route}/`)
   );
 
-  // 🔒 Rota protegida sem token → redireciona para login
-  if (!isPublic && !sessionToken) {
+  if (!isPublicRoute && !token) {
     return NextResponse.redirect(new URL(LOGIN_ROUTE, request.url));
   }
 
-  // ✅ Já está logado e tentou acessar o login → redireciona para dashboard
-  if (pathname === LOGIN_ROUTE && sessionToken) {
-    return NextResponse.redirect(new URL(DASHBOARD_ROUTE, request.url));
+  if (pathname === LOGIN_ROUTE && token) {
+    return NextResponse.redirect(
+      new URL(DEFAULT_ROUTE_AFTER_LOGIN, request.url)
+    );
+  }
+
+  for (const path in ROLE_PROTECTED_PATHS) {
+    if (pathname.startsWith(path)) {
+      const allowedRoles = ROLE_PROTECTED_PATHS[path];
+      const userRole = token?.role;
+      if (!userRole || !allowedRoles.includes(userRole)) {
+        return NextResponse.redirect(new URL(UNAUTHORIZED_ROUTE, request.url));
+      }
+    }
   }
 
   return i18nResponse;

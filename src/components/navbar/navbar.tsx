@@ -1,13 +1,17 @@
-import { LanguageSwitcher } from './language-switcher';
+'use client';
 
-import { auth } from '@/app/api/auth/[...nextauth]/auth-options';
-import { SignInButton } from '@/components/navbar/sign-in-button';
-import { UserDropdown } from '@/components/navbar/user-dropdown';
-import { Link } from '@/lib/i18n';
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
+
+import { LanguageSwitcher } from './language-switcher';
+import { SignInButton } from './sign-in-button';
+import { UserDropdown } from './user-dropdown';
+
 import * as m from '@/paraglide/messages';
 
-export const Navbar = async () => {
-  const session = await auth();
+export function Navbar() {
+  const { data: session } = useSession();
+  console.log('✅ Sessão:', session);
 
   return (
     <header className="w-full border-b">
@@ -16,10 +20,14 @@ export const Navbar = async () => {
           {m.app_name()}
         </Link>
         <div className="flex items-center gap-2">
-          {session ? <UserDropdown session={session} /> : <SignInButton />}
+          {session?.user ? (
+            <UserDropdown session={session} />
+          ) : (
+            <SignInButton />
+          )}
           <LanguageSwitcher />
         </div>
       </div>
     </header>
   );
-};
+}
