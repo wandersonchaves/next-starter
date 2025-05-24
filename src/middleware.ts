@@ -17,7 +17,6 @@ const ROLE_PROTECTED_PATHS: Record<string, ('ADMIN' | 'MANAGER' | 'USER')[]> = {
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
-  // const lang = request.headers.get('x-language-tag');
 
   if (pathname.startsWith('/api/') || pathname === '/api') {
     return NextResponse.next();
@@ -31,7 +30,6 @@ export async function middleware(request: NextRequest) {
     secret: env.AUTH_SECRET,
     cookieName: 'next-auth.session-token',
   });
-  console.log('📦 token do middleware:', token);
 
   const isPublicRoute = PUBLIC_ROUTES.some(
     (route) => pathname === route || pathname.startsWith(`${route}/`)

@@ -1,4 +1,3 @@
-// import type { DefaultSession } from 'next-auth'; // Apenas se estiver usando
 import NextAuth from 'next-auth';
 
 declare module 'next-auth' {

@@ -11,7 +11,6 @@ import * as m from '@/paraglide/messages';
 
 export function Navbar() {
   const { data: session } = useSession();
-  console.log('✅ Sessão:', session);
 
   return (
     <header className="w-full border-b">

@@ -14,4 +14,6 @@ export async function requireRole(allowedRoles: Role[]) {
   if (!session.user || !allowedRoles.includes(session.user.role)) {
     throw new Error('Access Denied');
   }
+
+  return session;
 }

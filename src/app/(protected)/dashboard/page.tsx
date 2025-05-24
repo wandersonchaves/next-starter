@@ -1,20 +1,19 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { useRoleGuard } from '@/hooks/use-role-guard';
 
 export default function DashboardPage() {
-  const { data: session } = useSession();
+  const { session, loading } = useRoleGuard({
+    allowedRoles: ['USER', 'ADMIN'],
+  });
 
-  if (!session) {
-    return <p className="p-4 text-red-500">Carregando sessão...</p>;
-  }
+  if (loading) return <p className="p-4">Carregando sessão...</p>;
 
   return (
     <div className="p-4">
-      <h1 className="text-xl">Olá, {session.user?.name}</h1>
+      <h1 className="text-xl">Olá, {session?.user?.name}</h1>
       <p>
-        Você está logado como:{' '}
-        <strong>{session.user?.role ?? 'Desconhecido'}</strong>
+        Você está logado como: <strong>{session?.user?.role}</strong>
       </p>
     </div>
   );

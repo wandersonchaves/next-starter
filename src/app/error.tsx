@@ -1,4 +1,17 @@
-export default function Unauthorized() {
+'use client';
+
+import { useEffect } from 'react';
+
+export default function Error({
+  error,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
+
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">

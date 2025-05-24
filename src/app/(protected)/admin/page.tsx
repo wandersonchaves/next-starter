@@ -1,7 +1,7 @@
 import { requireRole } from '@/lib/auth/require-role';
 
 export default async function AdminPage() {
-  await requireRole(['ADMIN']);
+  const session = await requireRole(['ADMIN']);
 
-  return <div>Bem-vindo, Admin!</div>;
+  return <div>Bem-vindo, {session.user?.role}</div>;
 }

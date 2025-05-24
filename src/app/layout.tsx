@@ -9,6 +9,7 @@ import { siteConfig } from '@/lib/constant';
 import { fonts } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import { languageTag } from '@/paraglide/runtime';
+
 export const generateMetadata = (): Metadata => ({
   metadataBase: new URL(siteConfig.url()),
   title: {
