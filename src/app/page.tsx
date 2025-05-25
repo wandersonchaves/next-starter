@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 import { HeroForm } from '@/components/form';
 import { Icons } from '@/components/icons';
@@ -29,20 +30,20 @@ const Home = () => {
       </div>
       <div className="mt-2 flex gap-4">
         <Button asChild>
-          <a
+          <Link
             href="https://github.com/wandersonchaves/next-starter/blob/main/README.md#getting-started"
             target="_blank"
           >
             {m.get_started()}
-          </a>
+          </Link>
         </Button>
         <Button variant="outline" asChild>
-          <a
+          <Link
             href="https://github.com/wandersonchaves/next-starter"
             target="_blank"
           >
             <Icons.github className="mr-2 size-4" /> {m.github()}
-          </a>
+          </Link>
         </Button>
       </div>
     </section>

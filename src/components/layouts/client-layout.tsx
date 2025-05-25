@@ -12,12 +12,14 @@ import { Toaster } from '../ui/toaster';
 export function ClientLayout({ children }: PropsWithChildren) {
   return (
     <SessionProvider>
-      <ThemeProvider attribute="class">
-        <Navbar />
-        {children}
-        <ThemeSwitcher className="absolute bottom-5 right-5 z-10" />
-        <Footer />
-        <Toaster />
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <ThemeSwitcher className="fixed bottom-5 right-5 z-10" />
+          <Toaster />
+        </div>
       </ThemeProvider>
     </SessionProvider>
   );

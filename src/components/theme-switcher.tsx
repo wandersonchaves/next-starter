@@ -12,7 +12,9 @@ type ThemeSwitcherProps = {
 };
 
 export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
+
+  const isDark = resolvedTheme === 'dark';
 
   return (
     <Button
@@ -20,10 +22,10 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       variant="secondary"
       size="icon"
       aria-label={m.theme_toggle_label()}
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      onClick={() => setTheme(isDark ? 'light' : 'dark')}
     >
-      <Icons.sun className="dark:hidden" />
-      <Icons.moon className="hidden dark:block" />
+      <Icons.sun className="hidden dark:inline-block" />
+      <Icons.moon className="inline-block dark:hidden" />
     </Button>
   );
 };
