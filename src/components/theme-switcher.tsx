@@ -5,6 +5,7 @@ import { useTheme } from 'next-themes';
 
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import { useMounted } from '@/hooks/use-mounted';
 import * as m from '@/paraglide/messages';
 
 type ThemeSwitcherProps = {
@@ -12,7 +13,11 @@ type ThemeSwitcherProps = {
 };
 
 export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+  const mounted = useMounted(); // ✅ usando o hook
   const { setTheme, resolvedTheme } = useTheme();
+
+  // Evita renderização antes da montagem
+  if (!mounted) return null;
 
   const isDark = resolvedTheme === 'dark';
 
